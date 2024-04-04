@@ -1,0 +1,539 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    html {
+        --gj-header-height: 3.5rem;
+        --gj-sidebar-open-width: 16.25rem;
+        --gj-sidebar-closed-width: 3rem;
+        --gj-mobile-ui-height: 4rem;
+        --gj-px-screen-edge: clamp(1.5rem, 5vw, 6rem);
+        --gj-px-screen-edge-constrained: 5rem;
+        --gj-py-page: 4rem;
+        --gj-py-section: 2rem;
+        --gj-bottom-bar-height: 0;
+    }
+
+    @media (min-width: 1472px) {
+        html {
+            --gj-px-screen-edge-constrained: calc((100vw - 80rem) / 2);
+        }
+    }
+
+    body {
+        display: block !important;
+    }
+
+    @font-face {
+        font-family: "Source Sans Pro Black";
+        src: url("https://sc-test.b-cdn.net/intellsys/fonts/SourceSansPro-Black.ttf");
+    }
+
+    .gj-button {
+        @apply tw-bg-primary-color-1 tw-text-text-color-1 hover:tw-brightness-125 disabled:tw-brightness-50 tw-p-4 disabled:tw-cursor-not-allowed tw-rounded-full tw-px-8;
+        font-size: 16px;
+    }
+
+    .gj-button-2 {
+        @apply tw-text-text-color-1 hover:tw-brightness-125 disabled:tw-brightness-50 tw-p-4 disabled:tw-cursor-not-allowed tw-rounded-full tw-px-8;
+        font-size: 16px;
+        background-color: #4361ee;
+    }
+
+    .gj-button-3 {
+        @apply tw-bg-primary-color-1 tw-text-text-color-1 hover:tw-brightness-125 disabled:tw-brightness-50 tw-p-4 disabled:tw-cursor-not-allowed tw-rounded-full;
+    }
+
+    .gj-button-4 {
+        @apply tw-text-text-color-1 hover:tw-brightness-125 disabled:tw-brightness-50 tw-p-4 disabled:tw-cursor-not-allowed tw-rounded-full;
+        background-color: #4361ee;
+    }
+
+    .gj-text-input {
+        @apply tw-p-4 tw-border tw-border-[#666F75] tw-bg-[#0D0D0D] tw-text-white disabled:tw-bg-[#202329] disabled:tw-opacity-50 disabled:tw-text-[#B2B4B9] read-only:tw-text-neutral-800 read-only:tw-bg-neutral-600 tw-w-full tw-rounded-xl;
+        box-shadow: 0px 9px 13px rgba(0, 0, 0, 0.07);
+    }
+
+    .gj-px-screen-edge {
+        padding-left: var(--gj-px-screen-edge);
+        padding-right: var(--gj-px-screen-edge);
+    }
+
+    .gj-px-screen-edge-constrained {
+        padding-left: var(--gj-px-screen-edge-constrained);
+        padding-right: var(--gj-px-screen-edge-constrained);
+    }
+
+    .gj-mx-screen-edge {
+        margin-left: var(--gj-px-screen-edge);
+        margin-right: var(--gj-px-screen-edge);
+    }
+
+    .gj-font-h1-200 {
+        font-size: 2.5rem;
+        line-height: 1.5;
+        font-weight: 300;
+    }
+
+    .gj-font-h1-300 {
+        font-size: 2.5rem;
+        line-height: 1.5;
+    }
+
+    .gj-font-h1-400 {
+        font-size: 2.75rem;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .gj-font-1rem {
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .gj-font-1\.5rem {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .gj-font-2rem {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .gj-font-4rem {
+        font-size: 4rem;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    /* TODO: Shift this to tailwind.config */
+    .tw-grid-cols-24 {
+        grid-template-columns: repeat(24, minmax(0, 1fr));
+    }
+
+    .tw-col-span-12 {
+        grid-column: span 12 / span 12;
+    }
+
+    .tw-col-span-24 {
+        grid-column: span 24 / span 24;
+    }
+
+    .gj-bg-foreground-gradient-dark {
+        background: linear-gradient(
+            331.74deg,
+            #737a88 11.73%,
+            #3d4352 71.11%,
+            #3d4352 117.18%
+        );
+    }
+
+    .gj-text-button {
+        font-family: "gj-poppins";
+        font-weight: 600;
+
+        @apply tw-text-[1rem] tw-leading-[1.5rem];
+    }
+
+    .gj-bg-primary-gradient {
+        background: -webkit-linear-gradient(0.5turn, #00a2ed, #1e40ca, #58bce7);
+        animation: animated-gradient 6s ease alternate infinite;
+        background-size: 300% 300%;
+    }
+
+    .gj-gray-bg-gradient {
+        background: linear-gradient(
+            141deg,
+            rgba(32, 35, 41, 0.3) 30.62%,
+            rgba(124, 126, 131, 0.3) 88.35%
+        );
+    }
+
+    .gj-bg-campaign-cta-card-gradient-border {
+        border: 1px solid;
+        border-image-source: linear-gradient(
+            145.53deg,
+            #1e40ca 0%,
+            #ffffff 105.25%
+        );
+        border-radius: 12px !important;
+    }
+
+    .card-bg-gradient {
+        background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0.2) 100%
+            ),
+            linear-gradient(
+                141deg,
+                rgba(32, 35, 41, 0.4) 30.62%,
+                rgba(124, 126, 131, 0.4) 88.35%
+            );
+    }
+
+    .login-page-bg-gradient {
+        background: radial-gradient(
+                59.92% 76.24% at 50% 50%,
+                #151515 0%,
+                rgba(21, 21, 21, 0) 100%
+            ),
+            radial-gradient(
+                59.97% 79.12% at 50% 50%,
+                #1f40cb 0%,
+                rgba(31, 64, 203, 0) 100%
+            ),
+            #131313;
+    }
+
+    .gj-text-primary-gradient {
+        @apply tw-text-secondary-color-1;
+        /* Asset-link afeb6666-2b9d-4945-a009-f30f3b305412 */
+        /* background: -webkit-linear-gradient(0.5turn, #1f40cb, #00a2ed); */
+        background: linear-gradient(
+            180deg,
+            #2851e3 0%,
+            #74b0fa 66.32%,
+            #79d0f1 100%
+        );
+        /* /Asset-link */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .gj-cta-button-gradient {
+        background: linear-gradient(
+            258deg,
+            #1e40ca 18.3%,
+            #106cda 49.02%,
+            #00a2ed 75.03%
+        );
+    }
+
+    .gj-cta-outline-button {
+        @apply tw-border-2 tw-border-[#00A2ED] tw-h-12 tw-text-white tw-rounded-md tw-py-2 tw-px-2 tw-flex tw-justify-center tw-items-center hover:tw-bg-primary-color-1 tw-transition-colors tw-duration-200 tw-cursor-pointer;
+    }
+
+    .gj-text-bg-gradient-primary {
+        background-color: #f3ec78;
+        background: linear-gradient(
+                122.99deg,
+                #c1ffed -18.39%,
+                #55a0e7 51.75%,
+                #559ee5 149.49%
+            ),
+            linear-gradient(0deg, #f5f5f5, #f5f5f5);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+    }
+
+    /* Text class names in sync with Figma, please maintain the sync :) */
+    .gj-text-banner-title {
+        @apply tw-font-bold tw-text-[3rem] tw-leading-[4.5rem];
+    }
+
+    .gj-text-headline-600 {
+        @apply tw-font-semibold tw-text-[2rem] tw-leading-[2.5rem];
+    }
+
+    .gj-text-headline-500 {
+        @apply tw-font-medium tw-text-[2rem] tw-leading-[2.5rem];
+    }
+
+    .gj-text-headline-300 {
+        @apply tw-font-light tw-text-[2rem] tw-leading-[2.5rem];
+    }
+
+    .gj-text-title-600 {
+        @apply tw-font-semibold tw-text-[1.5rem] tw-leading-[2rem];
+    }
+
+    .gj-text-title-400 {
+        @apply tw-font-normal tw-text-[1.5rem] tw-leading-[2rem];
+    }
+
+    .gj-text-body-600 {
+        @apply tw-font-semibold tw-text-[1rem] tw-leading-[1.5rem];
+    }
+
+    .gj-text-body-300 {
+        @apply tw-font-light tw-text-[1rem] tw-leading-[1.5rem];
+    }
+
+    .gj-text-button-600 {
+        @apply tw-font-semibold tw-text-[1rem] tw-leading-[1.5rem];
+    }
+
+    .gj-text-label-500 {
+        @apply tw-font-medium tw-text-[0.875rem] tw-leading-[1.25rem];
+    }
+
+    .gj-text-label-400 {
+        @apply tw-font-normal tw-text-[0.75rem] tw-leading-[1rem];
+    }
+
+    .gj-text-caption-400 {
+        @apply tw-font-normal tw-text-[0.625rem] tw-leading-[1rem];
+    }
+
+    .gj-text-icon-400 {
+        @apply tw-font-normal tw-text-[0.5rem] tw-leading-[0.5rem];
+    }
+
+    .gj-bg-table-header {
+        @apply tw-bg-body-bg-1 tw-bg-opacity-40;
+    }
+
+    .gj-input-bg {
+        @apply tw-bg-black tw-bg-opacity-40;
+    }
+
+    .book-a-demo-bg-gradient {
+        background: radial-gradient(
+                67.88% 63.61% at 50% 50%,
+                rgba(0, 174, 239, 0.3) 0%,
+                rgba(0, 143, 197, 0.3) 9%,
+                rgba(0, 106, 145, 0.3) 22%,
+                rgba(0, 73, 101, 0.3) 35%,
+                rgba(0, 47, 64, 0.3) 48%,
+                rgba(0, 26, 36, 0.3) 61%,
+                rgba(0, 11, 16, 0.3) 74%,
+                rgba(0, 2, 4, 0.3) 87%,
+                rgba(0, 0, 0, 0.3) 100%
+            ),
+            radial-gradient(
+                117.79% 126.34% at 88.6% 90.06%,
+                #080624 83.53%,
+                #273997 100%
+            ),
+            #fff;
+
+        background-blend-mode: screen, normal, normal;
+    }
+
+    .book-a-demo-form-bg {
+        background: linear-gradient(
+            153deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+    }
+
+    .test-gradient {
+        background: radial-gradient(
+            155.57% 47.79% at 50% 50%,
+            #fff 0%,
+            #defeff 13%,
+            #c4feff 26%,
+            #b3feff 38%,
+            #aefeff 47%,
+            #0090ff 99%
+        );
+    }
+
+    /* TODO: WTF?!?! */
+    .source-sans-pro {
+        font-family: "Source Sans Pro Black";
+    }
+
+    .primary-progress-bar {
+        appearance: none;
+        border-radius: 8px;
+        overflow: hidden;
+        @apply tw-bg-black;
+    }
+
+    .primary-progress-bar::-webkit-progress-bar {
+        @apply tw-bg-[#121212];
+    }
+
+    .primary-progress-bar::-webkit-progress-value {
+        @apply tw-bg-primary-color-1;
+        border-radius: 8px; /* Rounded corners for the progress bar */
+    }
+
+    .primary-progress-bar::-moz-progress-bar {
+        @apply tw-bg-primary-color-1;
+        border-radius: 4px; /* Rounded corners for the progress bar in Firefox */
+    }
+
+    .mantine-DatePicker-day[data-selected] {
+        background-color: #1f40cb !important;
+    }
+
+    .gj-flex-children-flex-none > * {
+        @apply tw-flex-none;
+    }
+
+    .gj-glass-bg {
+        background: linear-gradient(
+            153deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.03) 100%
+        );
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    .gj-glass-bg-with-nested-glass-support {
+        position: relative;
+        isolation: isolate;
+    }
+
+    .gj-glass-bg-with-nested-glass-support::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+            153deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.03) 100%
+        );
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    .gj-neon-border {
+        background: radial-gradient(#ffffff, #ffffff00),
+            radial-gradient(#17b384, #17b38400),
+            radial-gradient(#151515, #15151500);
+    }
+
+    .gj-body-bg {
+        background: #091333;
+        background-image: url("https://images.growthjockey.com/intellsys/post-login-home-page/lumen.png");
+        opacity: 0.4;
+        background-size: cover;
+    }
+
+    .gj-disco-tiles {
+        background-image: url("https://images.growthjockey.com/intellsys/common/tiles.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom;
+    }
+
+    .gj-active-item-shadow {
+        box-shadow: 0 0 8px #1e40ca;
+    }
+
+    .gj-icon-button-shadow {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.62) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+        );
+        mix-blend-mode: overlay;
+    }
+
+    .gj-py-page {
+        padding-top: var(--gj-py-page);
+        padding-bottom: var(--gj-py-page);
+    }
+
+    .gj-pb-section-divider {
+        padding-bottom: calc(var(--gj-py-section) / 2);
+    }
+
+    .gj-pt-section-divider {
+        padding-top: calc(var(--gj-py-section) / 2);
+    }
+
+    .gj-py-section-divider {
+        padding-top: calc(var(--gj-py-section) / 2);
+        padding-bottom: calc(var(--gj-py-section) / 2);
+    }
+
+    .gj-primary-border-1 {
+        @apply tw-border tw-border-primary-border-1 tw-border-solid;
+    }
+
+    .gj-sign-in-bg {
+        background: linear-gradient(0deg, #091333 0%, #091333 100%), #121212;
+    }
+}
+
+/* .ag-theme-alpine-dark {
+    --ag-font-size: 14px;
+    --ag-font-family: Poppins;
+    --ag-font-weight: 400;
+}
+
+.ag-root-wrapper {
+    border-radius: 8px;
+} */
+
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #00a2ed;
+    border-radius: 14px;
+    border: 3px solid #00a2ed;
+}
+
+.gj-scrollbar::-webkit-scrollbar {
+    background: black;
+    height: 5px;
+    width: 30px;
+}
+
+.gj-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4361ee;
+    border-radius: 10px;
+}
+
+.gj-calendar-picker::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, -20px, 0);
+    }
+}
+
+.gj-loading-bounce {
+    animation: bounce 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.gj-min-h-hero-banner {
+    @apply tw-h-full tw-min-h-[calc(100vh-var(--gj-header-height)-var(--gj-bottom-bar-height))] tw-min-h-[calc(100svh-var(--gj-header-height)-var(--gj-bottom-bar-height))] lg:tw-min-h-[calc(100vh-var(--gj-header-height))] lg:tw-min-h-[calc(100svh-var(--gj-header-height))];
+}
+
+.gj-card-glass {
+    /* border: 1px solid #ffffff; */
+    background: linear-gradient(
+        153deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    backdrop-filter: blur(21px);
+}
+
+/* region Mantine customization for reports */
+.add-widget-menu div[tabindex="-1"] {
+    display: none;
+}
+/* #endregion Mantine customization for reports */

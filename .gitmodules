@@ -1,0 +1,9 @@
+[submodule "app/common--database-manager--postgres"]
+	path = app/common--database-manager--postgres
+	url = ../common--database-manager--postgres.git
+[submodule "app/common--type-definitions"]
+	path = app/common--type-definitions
+	url = ../common--type-definitions.git
+[submodule "app/global-common-typescript"]
+	path = app/global-common-typescript
+	url = ../global-common-typescript.git
